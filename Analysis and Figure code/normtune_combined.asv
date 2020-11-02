@@ -1,0 +1,674 @@
+%% tunenorm_combined
+% load and compile data
+% load tuning and normalization data (fits and observed)
+clear
+for z=1
+% contingent adapt files
+a = load('136r001p174_procdata.mat','resp_f0_post','resp_f1_post','params_tc','params_tc_post','resp_f0','resp_f1','NIrPre','NIrPost','Area_pre','Area_post','SEM_f0','SEM_f1','SEM_f0_post','SEM_f1_post','fit','fit_tc','fit_post','fit_tc_post','cell_type','fit_tc_interp','fit_tc_post_interp','fit_qual','fit_qual_post','fit_qual_tc','fit_qual_tc_post','SI_pre','SI_post');
+b174=a.NIrPre;
+c174=a.NIrPost;
+d174=a.Area_pre;
+e174=a.Area_post;
+f174=a.SEM_f0;
+g174=a.SEM_f0_post;
+h174=a.SEM_f1;
+i174=a.SEM_f1_post;
+j174=a.fit;
+k174=a.fit_tc;
+l174=a.fit_post;
+m174=a.fit_tc_post;
+n174=a.fit_tc_interp;
+o174=a.fit_tc_post_interp;
+p174=a.fit_qual;
+q174=a.fit_qual_post;
+r174=a.fit_qual_tc;
+s174=a.fit_qual_tc_post;
+t174=a.cell_type;
+u174=a.resp_f0;
+v174=a.resp_f1;
+w174=a.params_tc;
+x174=a.params_tc_post;
+y174=a.SI_pre;
+z174=a.SI_post;
+a174=a.resp_f0_post;
+aa174=a.resp_f1_post;
+
+a = load('136l001p108_procdata.mat','resp_f0_post','resp_f1_post','params_tc','params_tc_post','resp_f0','resp_f1','NIrPre','NIrPost','Area_pre','Area_post','SEM_f0','SEM_f1','SEM_f0_post','SEM_f1_post','fit','fit_tc','fit_post','fit_tc_post','cell_type','fit_tc_interp','fit_tc_post_interp','fit_qual','fit_qual_post','fit_qual_tc','fit_qual_tc_post','SI_pre','SI_post');
+b108=a.NIrPre;
+c108=a.NIrPost;
+d108=a.Area_pre;
+e108=a.Area_post;
+f108=a.SEM_f0;
+g108=a.SEM_f0_post;
+h108=a.SEM_f1;
+i108=a.SEM_f1_post;
+j108=a.fit;
+k108=a.fit_tc;
+l108=a.fit_post;
+m108=a.fit_tc_post;
+n108=a.fit_tc_interp;
+o108=a.fit_tc_post_interp;
+p108=a.fit_qual;
+q108=a.fit_qual_post;
+r108=a.fit_qual_tc;
+s108=a.fit_qual_tc_post;
+t108=a.cell_type;
+u108=a.resp_f0;
+v108=a.resp_f1;
+w108=a.params_tc;
+x108=a.params_tc_post;
+y108=a.SI_pre;
+z108=a.SI_post;
+a108=a.resp_f0_post;
+aa108=a.resp_f1_post;
+
+a = load('136l001p121_procdata.mat','resp_f0_post','resp_f1_post','params_tc','params_tc_post','resp_f0','resp_f1','NIrPre','NIrPost','Area_pre','Area_post','SEM_f0','SEM_f1','SEM_f0_post','SEM_f1_post','fit','fit_tc','fit_post','fit_tc_post','cell_type','fit_tc_interp','fit_tc_post_interp','fit_qual','fit_qual_post','fit_qual_tc','fit_qual_tc_post','SI_pre','SI_post');
+b121=a.NIrPre;
+c121=a.NIrPost;
+d121=a.Area_pre;
+e121=a.Area_post;
+f121=a.SEM_f0;
+g121=a.SEM_f0_post;
+h121=a.SEM_f1;
+i121=a.SEM_f1_post;
+j121=a.fit;
+k121=a.fit_tc;
+l121=a.fit_post;
+m121=a.fit_tc_post;
+n121=a.fit_tc_interp;
+o121=a.fit_tc_post_interp;
+p121=a.fit_qual;
+q121=a.fit_qual_post;
+r121=a.fit_qual_tc;
+s121=a.fit_qual_tc_post;
+t121=a.cell_type;
+u121=a.resp_f0;
+v121=a.resp_f1;
+w121=a.params_tc;
+x121=a.params_tc_post;
+y121=a.SI_pre;
+z121=a.SI_post;
+a121=a.resp_f0_post;
+aa121=a.resp_f1_post;
+
+% Interleaved adapt files
+a = load('136r001p172_procdata.mat','resp_f0_post','resp_f1_post','params_tc','params_tc_post','resp_f0','resp_f1','NIrPre','NIrPost','Area_pre','Area_post','SEM_f0','SEM_f1','SEM_f0_post','SEM_f1_post','fit','fit_tc','fit_post','fit_tc_post','cell_type','fit_tc_interp','fit_tc_post_interp','fit_qual','fit_qual_post','fit_qual_tc','fit_qual_tc_post','SI_pre','SI_post');
+b172=a.NIrPre;
+c172=a.NIrPost;
+d172=a.Area_pre;
+e172=a.Area_post;
+f172=a.SEM_f0;
+g172=a.SEM_f0_post;
+h172=a.SEM_f1;
+i172=a.SEM_f1_post;
+j172=a.fit;
+k172=a.fit_tc;
+l172=a.fit_post;
+m172=a.fit_tc_post;
+n172=a.fit_tc_interp;
+o172=a.fit_tc_post_interp;
+p172=a.fit_qual;
+q172=a.fit_qual_post;
+r172=a.fit_qual_tc;
+s172=a.fit_qual_tc_post;
+t172=a.cell_type;
+u172=a.resp_f0;
+v172=a.resp_f1;
+w172=a.params_tc;
+x172=a.params_tc_post;
+y172=a.SI_pre;
+z172=a.SI_post;
+a172=a.resp_f0_post;
+aa172=a.resp_f1_post;
+
+a = load('136l001p110_procdata.mat','resp_f0_post','resp_f1_post','params_tc','params_tc_post','resp_f0','resp_f1','NIrPre','NIrPost','Area_pre','Area_post','SEM_f0','SEM_f1','SEM_f0_post','SEM_f1_post','fit','fit_tc','fit_post','fit_tc_post','cell_type','fit_tc_interp','fit_tc_post_interp','fit_qual','fit_qual_post','fit_qual_tc','fit_qual_tc_post','SI_pre','SI_post');
+b110=a.NIrPre;
+c110=a.NIrPost;
+d110=a.Area_pre;
+e110=a.Area_post;
+f110=a.SEM_f0;
+g110=a.SEM_f0_post;
+h110=a.SEM_f1;
+i110=a.SEM_f1_post;
+j110=a.fit;
+k110=a.fit_tc;
+l110=a.fit_post;
+m110=a.fit_tc_post;
+n110=a.fit_tc_interp;
+o110=a.fit_tc_post_interp;
+p110=a.fit_qual;
+q110=a.fit_qual_post;
+r110=a.fit_qual_tc;
+s110=a.fit_qual_tc_post;
+t110=a.cell_type;
+u110=a.resp_f0;
+v110=a.resp_f1;
+w110=a.params_tc;
+x110=a.params_tc_post;
+y110=a.SI_pre;
+z110=a.SI_post;
+a110=a.resp_f0_post;
+aa110=a.resp_f1_post;
+
+a = load('136l001p123_procdata.mat','resp_f0_post','resp_f1_post','params_tc','params_tc_post','resp_f0','resp_f1','NIrPre','NIrPost','Area_pre','Area_post','SEM_f0','SEM_f1','SEM_f0_post','SEM_f1_post','fit','fit_tc','fit_post','fit_tc_post','cell_type','fit_tc_interp','fit_tc_post_interp','fit_qual','fit_qual_post','fit_qual_tc','fit_qual_tc_post','SI_pre','SI_post');
+b123=a.NIrPre;
+c123=a.NIrPost;
+d123=a.Area_pre;
+e123=a.Area_post;
+f123=a.SEM_f0;
+g123=a.SEM_f0_post;
+h123=a.SEM_f1;
+i123=a.SEM_f1_post;
+j123=a.fit;
+k123=a.fit_tc;
+l123=a.fit_post;
+m123=a.fit_tc_post;
+n123=a.fit_tc_interp;
+o123=a.fit_tc_post_interp;
+p123=a.fit_qual;
+q123=a.fit_qual_post;
+r123=a.fit_qual_tc;
+s123=a.fit_qual_tc_post;
+t123=a.cell_type;
+u123=a.resp_f0;
+v123=a.resp_f1;
+w123=a.params_tc;
+x123=a.params_tc_post;
+y123=a.SI_pre;
+z123=a.SI_post;
+a123=a.resp_f0_post;
+aa123=a.resp_f1_post;
+end
+
+%% create variables
+RM_Pre_c = [b174; b108; b121];
+RM_Post_c = [c174; c108; c121];
+SI_pre_c = [y174 y108 y121];
+SI_post_c = [z174 z108 z121];
+Area_pre_c = [d174 d108 d121];
+Area_post_c = [e174 e108 e121];
+SEM_f0_c = [f174; f108; f121];
+SEM_f0_post_c = [g174; g108; g121];
+SEM_f1_c = [h174; h108; h121];
+SEM_f1_post_c = [i174; i108; i121];
+fit_c = [j174; j108; j121];
+fit_tc_c = [k174; k108; k121];
+fit_post_c = [l174; l108; l121];
+fit_tc_post_c = [m174; m108; m121];
+fit_tc_interp_c = [n174; n108; n121];
+fit_tc_post_interp_c = [o174; o108; o121];
+fit_qual_c = [p174 p108 p121];
+fit_qual_post_c = [q174 q108 q121];
+fit_qual_tc_c = [r174; r108; r121];
+fit_qual_tc_post_c = [s174; s108; s121];
+cell_type_c = [t174 t108 t121];
+resp_f0_c = [u174; u108; u121];
+resp_f1_c = [v174; v108; v121];
+resp_f0_post_c = [a174; a108; a121];
+resp_f1_post_c = [aa174; aa108; aa121];
+tcpar_c = [w174; w108; w121];
+tcpar_post_c = [x174; x108; x121];
+
+RM_Pre_a = [b172; b110; b123];
+RM_Post_a = [c172; c110; c123];
+SI_pre_a = [y172 y110 y123];
+SI_post_a = [z172 z110 z123];
+Area_pre_a = [d172 d110 d123];
+Area_post_a = [e172 e110 e123];
+SEM_f0_a = [f172; f110; f123];
+SEM_f0_post_a = [g172; g110; g123];
+SEM_f1_a = [h172; h110; h123];
+SEM_f1_post_a = [i172; i110; i123];
+fit_a = [j172; j110; j123];
+fit_tc_a = [k172; k110; k123];
+fit_post_a = [l172; l110; l123];
+fit_tc_post_a = [m172; m110; m123];
+fit_tc_interp_a = [n172; n110; n123];
+fit_tc_post_interp_a = [o172; o110; o123];
+fit_qual_a = [p172 p110 p123];
+fit_qual_post_a = [q172 q110 q123];
+fit_qual_tc_a = [r172; r110; r123];
+fit_qual_tc_post_a = [s172; s110; s123];
+cell_type_a = [t172 t110 t123];
+resp_f0_a = [u172; u110; u123];
+resp_f1_a = [v172; v110; v123];
+resp_f0_post_a = [a172; a110; a123];
+resp_f1_post_a = [aa172; aa110; aa123];
+tcpar_a = [w172; w110; w123];
+tcpar_post_a = [x172; x110; x123];
+
+clearvars -except RM_Pre_a RM_Pre_c RM_Post_a RM_Post_c Area_pre_a Area_pre_c...
+    Area_post_a Area_post_c SEM_f0_a SEM_f0_c SEM_f1_a SEM_f1_c SEM_f0_post_a...
+    SEM_f0_post_c SEM_f1_post_a SEM_f1_post_c fit_a fit_c fit_tc_a fit_tc_c...
+    fit_post_a fit_post_c fit_tc_post_a fit_tc_post_c fit_tc_interp_a...
+    fit_tc_interp_c fit_tc_post_interp_a fit_tc_post_interp_c fit_qual_a...
+    fit_qual_c fit_qual_post_a fit_qual_post_c fit_qual_tc_a fit_qual_tc_c...
+    fit_qual_tc_post_a fit_qual_tc_post_c cell_type_a cell_type_c...
+    resp_f0_a resp_f1_a resp_f0_c resp_f1_c tcpar_c tcpar_a tcpar_post_a...
+    tcpar_post_c SI_pre_c SI_pre_a SI_post_c SI_post_a resp_f0_post_c...
+    resp_f1_post_c resp_f0_post_a resp_f1_post_a
+
+%% calc change in norm. for each metric
+% AREA
+AM_diff_a = Area_post_a-Area_pre_a;
+AM_diff_c = Area_post_c-Area_pre_c;
+
+% SI (rate match)
+RM_diff_a = RM_Post_a-RM_Pre_a;
+RM_diff_c = RM_Post_c-RM_Pre_c;
+
+% SI (normal)
+SI_diff_a = SI_post_a-SI_pre_a;
+SI_diff_c = SI_post_c-SI_pre_c;
+
+
+%% vector sum method for orientation pref and change
+% calculate orientation preference
+oris=[90 67.5 45 22.5 0 -22.5 -45 -67.5];
+
+% contingent
+for e=1:length(cell_type_c)
+    if cell_type_c(e)==0
+        tune_resp_c=resp_f0_c(e,17:24);
+        tune_resp_post_c=resp_f0_post_c(e,17:24);
+        spont_c=resp_f0_c(e,1);
+        spont_post_c=resp_f0_post_c(e,1);
+    else
+        tune_resp_c=resp_f1_c(e,17:24);
+        tune_resp_post_c=resp_f1_post_c(e,17:24);
+        spont_c=resp_f1_c(e,1);
+        spont_post_c=resp_f1_post_c(e,1);
+    end
+    [dbias_pre_c(e), dpref_pre_c(e), oribias_pre_c(e), oripref_pre_c(e), qbias_pre_c(e), qpref_pre_c(e)]=orivecfit(oris,tune_resp_c,spont_c);
+    [dbias_post_c(e), dpref_post_c(e), oribias_post_c(e), oripref_post_c(e), qbias_post_c(e), qpref_post_c(e)]=orivecfit(oris,tune_resp_post_c,spont_post_c);
+end
+
+% asynch
+for e=1:length(cell_type_a)
+    if cell_type_a(e)==0
+        tune_resp_a=resp_f0_a(e,17:24);
+        tune_resp_post_a=resp_f0_post_a(e,17:24);
+        spont_a=resp_f0_a(e,1);
+        spont_post_a=resp_f0_post_a(e,1);
+    else
+        tune_resp_a=resp_f1_a(e,17:24);
+        tune_resp_post_a=resp_f1_post_a(e,17:24);
+        spont_a=resp_f1_a(e,1);
+        spont_post_a=resp_f1_post_a(e,1);
+    end
+    [dbias_pre_a(e), dpref_pre_a(e), oribias_pre_a(e), oripref_pre_a(e), qbias_pre_a(e), qpref_pre_a(e)]=orivecfit(oris,tune_resp_a,spont_a);
+    [dbias_post_a(e), dpref_post_a(e), oribias_post_a(e), oripref_post_a(e), qbias_post_a(e), qpref_post_a(e)]=orivecfit(oris,tune_resp_post_a,spont_post_a);
+end
+
+%% distribution of ori preferences
+figure
+subplot(221)
+histogram(oripref_pre_a,-90:10:90)
+title('asynchronous')
+ylabel('# of units')
+axis square
+subplot(222)
+histogram(oripref_pre_c,-90:10:90)
+title('contingent')
+supertitle('vecsum ori pref dist')
+axis square
+subplot(223)
+histogram(oripref_pre_a(~isnan(AM_diff_a)),-90:10:90)
+ylabel('included units')
+xlabel('ori pref')
+axis square
+subplot(224)
+histogram(oripref_pre_c(~isnan(AM_diff_c)),-90:10:90)
+axis square
+
+%% save responses for future figures & choose picky/well-tuned cells
+for e=1:length(cell_type_c)
+    if cell_type_c(e)==0
+        stim_resp_c(e,:)=resp_f0_c(e,:);
+        sem_resp_c(e,:)=SEM_f0_c(e,:);
+    else
+        stim_resp_c(e,:)=resp_f1_c(e,:);
+        sem_resp_c(e,:)=SEM_f1_c(e,:);
+    end
+end
+ind=1;
+for e = 1:length(stim_resp_c)
+    if stim_resp_c(e,5)>stim_resp_c(e,9)
+        if stim_resp_c(e,5)>stim_resp_c(e,1)+sem_resp_c(e,1)*10 && max([stim_resp_c(e,5) stim_resp_c(e,21)])>10 && oribias_pre_c(e)>0.6
+            picky_resps_c(ind,:)=stim_resp_c(e,:);
+            picky_oris_c(ind,:)=[oripref_pre_c(e) oribias_pre_c(e)];
+            picky_AM_c(ind)=AM_diff_c(e);
+            ind=1+ind;
+        end
+    else
+        if stim_resp_c(e,9)>stim_resp_c(e,1)+sem_resp_c(e,1)*10 && max([stim_resp_c(e,9) stim_resp_c(e,17)])>10 && oribias_pre_c(e)>0.6
+            picky_resps_c(ind,:)=stim_resp_c(e,:);
+            picky_oris_c(ind,:)=[oripref_pre_c(e) oribias_pre_c(e)];
+            picky_AM_c(ind)=AM_diff_c(e);
+            ind=1+ind;
+        end
+    end
+end
+
+% asynch
+for e=1:length(cell_type_a)
+    if cell_type_a(e)==0
+        stim_resp_a(e,:)=resp_f0_a(e,:);
+        sem_resp_a(e,:)=SEM_f0_a(e,:);
+    else
+        stim_resp_a(e,:)=resp_f1_a(e,:);
+        sem_resp_a(e,:)=SEM_f1_a(e,:);
+    end
+end
+ind=1;
+for e = 1:length(stim_resp_a)
+    if stim_resp_a(e,5)>stim_resp_a(e,9)
+        if stim_resp_a(e,5)>stim_resp_a(e,1)+sem_resp_a(e,1)*10 && max([stim_resp_a(e,5) stim_resp_a(e,21)])>10 && oribias_pre_a(e)>0.6
+            picky_resps_a(ind,:)=stim_resp_a(e,:);
+            picky_oris_a(ind,:)=[oripref_pre_a(e) oribias_pre_a(e)];
+            picky_AM_a(ind)=AM_diff_a(e);
+            ind=1+ind;
+        end
+    else
+        if stim_resp_a(e,9)>stim_resp_a(e,1)+sem_resp_a(e,1)*10 && max([stim_resp_a(e,9) stim_resp_a(e,17)])>10 && oribias_pre_a(e)>0.6
+            picky_resps_a(ind,:)=stim_resp_a(e,:);
+            picky_oris_a(ind,:)=[oripref_pre_a(e) oribias_pre_a(e)];
+            picky_AM_a(ind)=AM_diff_a(e);
+            ind=1+ind;
+        end
+    end
+end
+
+figure
+subplot(121)
+histogram(picky_oris_a(:,1),-90:10:90)
+subplot(122)
+histogram(picky_oris_c(:,1),-90:10:90)
+supertitle('oris of picky cells')
+
+figure
+for e=1:length(picky_oris_a)
+    hold on
+    plot(picky_resps_a(e,17:end),'k')
+    plot([5 1 8],picky_resps_a(e,[5 9 9]),'ro')
+    title(picky_oris_a(e,:))
+    pause
+    clf
+end
+%% change in masking index based on ori pref (vecsum)
+
+figure
+subplot(121); hold on
+plot(oripref_pre_c,AM_diff_c,'g.')
+plot([-90 90],[0 0],'k--')
+ylim([-2 2])
+title('Contingent adaptation')
+xlabel('Ori pref')
+ylabel('delta Masking Index')
+axis square
+subplot(122); hold on
+plot(oripref_pre_a,AM_diff_a,'b.')
+plot([-90 90],[0 0],'k--')
+ylim([-2 2])
+title('Asynchronous adaptation')
+axis square
+supertitle('nonpicky')
+
+%% change in gain (Von Mises) relative to orientation preference (pre)
+% lsq -> max likelihood
+lb=[0; 0; 0; 0;];                                           % lower bounds
+ub=Inf*ones(4,1);                                           % upper bounds
+options=optimset('MaxIter',1E4,'MaxFunEvals',1E4,'TolX',1E-3,'LargeScale','on');
+xdata = deg2rad(oris+90);                                               % test oris
+% xdata_interpolate = 0:179;
+
+% % Contingent
+for e=1:length(cell_type_c)     % fit for PRE-Adapt
+    if cell_type_c(e)==0
+        resp=resp_f0_c(e,17:24);
+    else
+        resp=resp_f1_c(e,17:24);
+    end
+    [~,y]=find(max(resp));
+    if isempty(y)
+        y=4;
+    end
+    x0=[min(resp) 1 1 xdata(y)];  % VM: offset, gain, width, center
+    
+    VMc(e,:)=lsqcurvefit('vonmises',x0,xdata,resp,lb,ub,options);
+%     fit_vmc(e,:)=vonmises(VMc(e,:),xdata);
+%     fit_tc_interp(e,:) = gauss1d(params_tc(e,:),xdata_interpolate);
+%     fit_qual_vmc(e,:)=1-(var(resp-fit_vmc(e,:))/var(resp));
+    
+    % Max Liklihood based off LSQ predictions
+    p=VMc(e,:);
+    [pars_c(e,:), LogL_c(e,:)]=VM_ML(p,resp,lb,ub);     % fits functions
+	fit_vmc(e,:)=vonmises(pars_c(e,:),xdata);
+    
+    disp(e)
+end
+for e=1:length(cell_type_c)     % fit for POST-Adapt
+    if cell_type_c(e)==0
+        resp=resp_f0_post_c(e,17:24);
+    else
+        resp=resp_f1_post_c(e,17:24);
+    end
+    [~,y]=find(max(resp));
+    if isempty(y)
+        y=4;
+    end
+    x0=[min(resp) 1 1 xdata(y)];
+    
+    VMc_post(e,:)=lsqcurvefit('vonmises',x0,xdata,resp,lb,ub,options);
+%     fit_vmc_post(e,:)=vonmises(VMc_post(e,:),xdata);
+%     fit_tc_post_interp(e,:) = gauss1d(params_tc_post(e,:),xdata_interpolate);
+%     fit_qual_vmc_post(e,:)=1-(var(resp-fit_vmc_post(e,:))/var(resp));
+    
+    % Max Liklihood based off LSQ predictions
+    p=VMc_post(e,:);
+    [pars_c_post(e,:), LogL_c_post(e,:)]=VM_ML(p,resp,lb,ub);     % fits functions
+    fit_vmc_post(e,:)=vonmises(pars_c_post(e,:),xdata);    
+    disp(e)
+end
+
+% % Ascynhronous
+for e=1:length(cell_type_a)     % fit for PRE-Adapt
+    if cell_type_a(e)==0
+        resp=resp_f0_a(e,17:24);
+    else
+        resp=resp_f1_a(e,17:24);
+    end
+    [~,y]=find(max(resp));
+    x0=[min(resp) 2 2 xdata(y)];  % VM: offset, gain, width, center
+    
+    VMa(e,:)=lsqcurvefit('vonmises',x0,xdata,resp,lb,ub,options);
+%     fit_vma(e,:)=vonmises(VMa(e,:),xdata);
+%     fit_tc_interp(e,:) = gauss1d(params_tc(e,:),xdata_interpolate);
+%     fit_qual_vma(e,:)=1-(var(resp-fit_vma(e,:))/var(resp));
+    
+    % Max Liklihood based off LSQ predictions
+    p=VMa(e,:);
+    [pars_a(e,:), LogL_a(e,:)]=VM_ML(p,resp,lb,ub);     % fits functions
+    fit_vma(e,:)=vonmises(pars_a(e,:),xdata);
+    
+    disp(e)
+end
+for e=1:length(cell_type_a)     % fit for POST-Adapt
+    if cell_type_a(e)==0
+        resp=resp_f0_post_a(e,17:24);
+    else
+        resp=resp_f1_post_a(e,17:24);
+    end
+    [~,y]=find(max(resp));
+    x0=[min(resp) 2 2 xdata(y)];
+    
+    VMa_post(e,:)=lsqcurvefit('vonmises',x0,xdata,resp,lb,ub,options);
+%     fit_vma_post(e,:)=vonmises(VMa_post(e,:),xdata);
+%     fit_tc_post_interp(e,:) = gauss1d(params_tc_post(e,:),xdata_interpolate);
+%     fit_qual_vma_post(e,:)=1-(var(resp-fit_vma_post(e,:))/var(resp));
+    
+    % Max Liklihood based off LSQ predictions
+    p=VMa_post(e,:);
+    [pars_a_post(e,:), LogL_a_post(e,:)]=VM_ML(p,resp,lb,ub);     % fits functions
+    fit_vma_post(e,:)=vonmises(pars_a_post(e,:),xdata);
+    
+    disp(e)
+end
+
+% % % compare gain change from VM to orientation preference
+i=1;
+for e=1:length(LogL_c)
+    LogL_c(e,4)=(LogL_c(e,1)-LogL_c(e,2))/(LogL_c(e,3)-LogL_c(e,2));
+    LogL_c_post(e,4)=(LogL_c_post(e,1)-LogL_c_post(e,2))/(LogL_c_post(e,3)-LogL_c_post(e,2));
+    if LogL_c(e,4)>0.5 && LogL_c_post(e,4)>0.5 %&& oribias_pre_c(e)>0.5
+        VMgain_c(i,:)=[pars_c_post(e,2)/pars_c(e,2) oripref_pre_c(e) pars_c(e,4)];
+        p2p_c(i)=max(fit_vmc_post(e,:))/max(fit_vmc(e,:));
+        i=i+1;
+    end
+end
+i=1;
+for e=1:length(LogL_a)
+    LogL_a(e,4)=(LogL_a(e,1)-LogL_a(e,2))/(LogL_a(e,3)-LogL_a(e,2));
+    LogL_a_post(e,4)=(LogL_a_post(e,1)-LogL_a_post(e,2))/(LogL_a_post(e,3)-LogL_a_post(e,2));
+    if LogL_a(e,4)>0.5 && LogL_a_post(e,4)>0.5  %&& oribias_pre_a(e)>0.5
+        VMgain_a(i,:)=[pars_a_post(e,2)/pars_a(e,2)  oripref_pre_a(e) pars_a(e,4)];
+        p2p_a(i)=max(fit_vma_post(e,:))/max(fit_vma(e,:));
+        i=i+1;
+    end
+end
+for e=1:length(LogL_c)
+    p2p_c(e)=(max(fit_vmc_post(e,:))-min(fit_vmc_post(e,:)))/(max(fit_vmc(e,:))-min(fit_vmc(e,:)));
+    oripref_c(e)=oripref_pre_c(e);
+    oribias_c(e)=oribias_pre_c(e);
+end
+for e=1:length(LogL_a)
+    p2p_a(e)=(max(fit_vma_post(e,:))-min(fit_vma_post(e,:)))/(max(fit_vma(e,:))-min(fit_vma(e,:)));
+    oripref_a(e)=oripref_pre_a(e);
+    oribias_a(e)=oribias_pre_a(e);
+end
+
+p2p_a=p2p_a(~isnan(Area_pre_a));
+oripref_a=oripref_a(~isnan(Area_pre_a));
+oribias_a=oribias_a(~isnan(Area_pre_a));
+p2p_c=p2p_c(~isnan(Area_pre_c));
+oripref_c=oripref_c(~isnan(Area_pre_c));
+oribias_c=oribias_c(~isnan(Area_pre_c));
+MI_c=AM_diff_c(~isnan(AM_diff_c));
+MI_a=AM_diff_a(~isnan(AM_diff_a));
+% figure;
+% subplot(221)
+% plot(VMgain_c(:,2),VMgain_c(:,1),'k.')
+% refline(0,1)
+% ylim([0 2])
+% ylabel('von mises gain (post/pre)')
+% xlabel('ori pref (vecsum)')
+% title('contingent')
+% subplot(222)
+% tmp=VMgain_c(:,3);
+% tmp(tmp>2*pi)=tmp(tmp>2*pi)-2*pi;
+% tmp(tmp>2*pi)=tmp(tmp>2*pi)-2*pi;
+% plot(rad2deg(tmp),VMgain_c(:,1),'k.')
+% refline(0,1)
+% ylim([0 2])
+% xlim([0 180])
+% ylabel('von mises gain (post/pre)')
+% xlabel('von mises center')
+% title('contingent')
+% subplot(223)
+% plot(VMgain_a(:,2),VMgain_a(:,1),'k.')
+% refline(0,1)
+% ylim([0 2])
+% ylabel('von mises gain (post/pre)')
+% xlabel('ori pref (vecsum)')
+% title('asynch')
+% subplot(224)
+% tmp=VMgain_a(:,3);
+% tmp(tmp>2*pi)=tmp(tmp>2*pi)-2*pi;
+% tmp(tmp>2*pi)=tmp(tmp>2*pi)-2*pi;
+% plot(rad2deg(tmp),VMgain_a(:,1),'k.')
+% refline(0,1)
+% ylim([0 2])
+% xlim([0 180])
+% ylabel('von mises gain (post/pre)')
+% xlabel('von mises center')
+% title('asynch')
+
+% figure; 
+% subplot(221); histogram(fit_qual_vmc,0:0.1:1); 
+% subplot(222); histogram(fit_qual_vmc_post,0:0.1:1); 
+% subplot(223); histogram(LogL_c(:,4),0:0.1:1); 
+% subplot(224); histogram(LogL_c_post(:,4),0:0.1:1)
+% title('contingent fit qual')
+
+% figure; 
+% subplot(221); histogram(fit_qual_vma,0:0.1:1); 
+% subplot(222); histogram(fit_qual_vma_post,0:0.1:1); 
+% subplot(223); histogram(LogL_a(:,4),0:0.1:1); 
+% subplot(224); histogram(LogL_a_post(:,4),0:0.1:1)
+% title('asynch fit qual')
+
+tmpc=cell(1,6);
+tmpa=cell(1,6);
+temp=abs(VMgain_c(:,2));
+temp2=abs(VMgain_a(:,2));
+for e = 1:length(VMgain_c)
+    if temp(e)<=15
+        id=1;
+    elseif temp(e)<=30
+        id=2;
+    elseif temp(e)<=45
+        id=3;
+    elseif temp(e)<=60
+        id=4;
+    elseif temp(e)<=75
+        id=5;
+    elseif temp(e)<=90
+        id=6;
+    end
+    tmpc{id}=[tmpc{id}; p2p_c(e)];
+end
+for e = 1:length(VMgain_a)
+    if temp2(e)<=15
+        id=1;
+    elseif temp2(e)<=30
+        id=2;
+    elseif temp2(e)<=45
+        id=3;
+    elseif temp2(e)<=60
+        id=4;
+    elseif temp2(e)<=75
+        id=5;
+    elseif temp2(e)<=90
+        id=6;
+    end
+    tmpa{id}=[tmpa{id}; p2p_a(e)];
+end
+figure
+for e = 1:6
+    tempc=tmpc{e}(:);
+    tempc(tempc>3)=3;
+    tempa=tmpa{e}(:);
+    tempa(tempa>3)=3;
+    subplot(121)
+    hold on
+    errorline(e,nanmean(tempc),std(tempc)/sqrt(length(tempc)),'k.')
+    subplot(122)
+    hold on
+    errorline(e,nanmean(tempa),std(tempa)/sqrt(length(tempa)),'k.')
+end
+subplot(121)
+title('contingent')
+ylabel('peak 2 peak ratio (post/pre)'); 
+xlabel('Pref Ori Rel Adapt (vecsum)')
+set(gca,'XTick',[1 2 3 4 5 6],'XTickLabel',{'0-15','15-30','30-45','45-60','60-75','75-90'})
+xlim([0.6 6.5])
+ylim([0.5 1.1])
+refline(0,1)
+subplot(122)
+title('asynchronous')
+xlabel('Pref Ori Rel Adapt (vecsum)')
+set(gca,'XTick',[1 2 3 4 5 6],'XTickLabel',{'0-15','15-30','30-45','45-60','60-75','75-90'})
+xlim([0.6 6.5])
+ylim([0.5 1.1])
+refline(0,1)
+
